@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import authRoute from "../api/route/authRoute.js";
-import userRoute from "../api/route/userRoute.js";
+import authRoute from "./route/authRoute.js";
+import userRoute from "./route/userRoute.js";
 import listingRoute from "./route/listingRoute.js";
 import testRoute from "./route/testRoute.js";
 
