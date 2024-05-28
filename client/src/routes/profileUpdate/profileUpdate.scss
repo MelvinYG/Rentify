@@ -4,6 +4,13 @@
     display: flex;
     height: calc(100vh - 100px);
 
+    @include sm{
+        height: 100vh;
+        padding-bottom: 250px;
+        align-items: start;
+        overflow-y: scroll;
+    }
+
     .item{   
         display: flex;
         align-items: center;

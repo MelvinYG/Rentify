@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from 'react';
 import HeroImg from '../../components/heroImg/heroImg';
 import Searchbar from '../../components/searchbar/searchbar';
@@ -13,7 +14,7 @@ const HomePage = () => {
           <h1>
               One-stop solution for all buying and selling rentals
           </h1>
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. A repellendus eaque voluptatem perspiciatis nulla, dignissimos delectus expedita consequatur sint! Id.</h3>
+          <h3>The only place where you can trust your buyers and sellers of rentals</h3>
           <Searchbar></Searchbar>
         </div>
       </div>

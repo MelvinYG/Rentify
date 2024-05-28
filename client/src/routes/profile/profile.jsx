@@ -46,15 +46,15 @@ const Profile = () => {
             <Link to={"/list/add"} className='btn'>Add New Post</Link>
           </div>
           <div className="card-container">
-            {post.map((item,index) =>
+            {post.map((item, index) =>
               <Card key={index} item={item}></Card>
             )}
           </div>
         </div>
       </div>
-      <div className="message-container">
-        <HeroImg></HeroImg>
-        {/* <div className="top">
+      <HeroImg></HeroImg>
+      {/*<div className="message-container">
+         <div className="top">
           <h2>Messages</h2>
         </div>
         <div className="message-details">
@@ -62,8 +62,8 @@ const Profile = () => {
           <Message></Message>
           <Message></Message>
           <Message></Message>
-        </div> */}
       </div>
+        </div> */}
     </div>
   )
 };

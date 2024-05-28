@@ -116,7 +116,7 @@
             color: white;
             transition: all 1s ease;
             font-size: 20px;
-            z-index: 999;
+            z-index: 1999;
 
             &.active {
                 right: 0;
@@ -137,5 +137,12 @@
 
     .pointer {
         cursor: pointer;
+    }
+
+    @include sm{
+        a{
+            font-size: 1rem;
+            text-align: center;
+        }
     }
 }

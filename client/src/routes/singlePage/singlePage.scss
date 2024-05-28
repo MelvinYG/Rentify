@@ -119,7 +119,8 @@
         
 
         @include md {
-            min-height: 100vh;
+            padding-bottom: 200px;
+            height: 200vh;
         }
 
         .wrapper {

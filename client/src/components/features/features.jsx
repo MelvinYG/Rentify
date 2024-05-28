@@ -39,6 +39,7 @@ const Features = ({ data }) => {
     }
 
     const emailHandler = async () => {
+        if(currentUser === null) return;
         const emailData = {
             fromEmail: currentUser.email,
             toEmail: data.userId.email,
@@ -95,7 +96,7 @@ const Features = ({ data }) => {
             <div className="contact" onClick={closeHandler}>
                 <FavoriteBorderIcon></FavoriteBorderIcon> I'm interested
             </div>
-            {(currentUser._id === data.userId._id) ?
+            {(currentUser !==null && currentUser._id === data.userId._id) ?
                 <div className="modifications">
                     <Link to={`/${data._id}/update`} className='btn'>Update Post</Link>
                     <button className='btn red' onClick={handleDeletePost}>Delete Post</button>

@@ -15,13 +15,18 @@ import { AuthContext } from '../../context/AuthContext';
 const SinglePage = () => {
   const { currentUser } = useContext(AuthContext);
   const post = useLoaderData();
-  const [like, setLike] = useState(false);
+  const [liked, setLiked] = useState(currentUser ? post.likes.includes(currentUser._id) : false);
+  const [currentLike, setCurrentLike] = useState(post.likes_count);
 
   const likeHandler = async () => {
     if (currentUser !== null) {
-      setLike(!like);
-      const res = await apiRequest.post(`/listing/${post._id}/like`);
-      console.log("SinglePage res: ", res);
+      if(liked){
+        setCurrentLike(prev => prev - 1);
+      }else{
+        setCurrentLike(prev => prev + 1);
+      }
+      setLiked(!liked);
+      await apiRequest.post(`/listing/${post._id}/like`);
     }
   }
 
@@ -43,9 +48,10 @@ const SinglePage = () => {
                   <span>{post.price}</span>
                 </p>
                 <p className='likes' onClick={likeHandler}>
-                  {(like && currentUser) ? <FavoriteIcon></FavoriteIcon> :
+                  {(liked) ? <FavoriteIcon></FavoriteIcon> :
                     <FavoriteBorderIcon></FavoriteBorderIcon>}
-                  <span>{(like && currentUser) ? post.likes_count + 1 : post.likes_count}</span>
+                  <span>{currentLike}</span>
+                  {/* <span>{post.likes_count}</span> */}
                 </p>
               </div>
               <div className="top-right">
