@@ -16,22 +16,22 @@ export const sendEmail = async (req, res) => {
     from: process.env.SMTP_MAIL,
     to: toEmail,
     subject: `Interest in listing ${listingTitle} from Rentify`,
-    message: `I would like to get connected for more informations on your listing.`
+    text: `I would like to get connected for more informations on your listing.\nContact me @ ${fromEmail}\nThank you`
   }
   const mailOptionsForSender = {
     from: process.env.SMTP_MAIL,
     to: fromEmail,
     subject: `Interest in listing ${listingTitle} from Rentify`,
-    message: `Interest notified to ${toEmail}`
+    text: `Interest notified to ${toEmail}`
   }
-  transporter.sendMail(mailOptions, function (error, info) {
+  await transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {
       console.log(`Message sent successfully to ${toEmail}`);
     }
   });
-  transporter.sendMail(mailOptionsForSender, function (error, info) {
+  await transporter.sendMail(mailOptionsForSender, function (error, info) {
     if (error) {
       console.log(error);
     } else {
